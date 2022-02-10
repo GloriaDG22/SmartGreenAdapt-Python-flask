@@ -12,19 +12,6 @@ from openapi_server.test import BaseTestCase
 class TestNotificacionController(BaseTestCase):
     """NotificacionController integration test stubs"""
 
-    def test_delete_notification(self):
-        """Test case for delete_notification
-
-        Eliminación de datos de notificación.
-        """
-        query_string = [('id_notification', 56)]
-        response = self.client.open(
-            '/notification',
-            method='DELETE',
-            query_string=query_string)
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
     def test_get_notification(self):
         """Test case for get_notification
 
@@ -47,20 +34,6 @@ class TestNotificacionController(BaseTestCase):
         response = self.client.open(
             '/notification',
             method='POST',
-            data=json.dumps(notification),
-            content_type='application/json')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
-    def test_put_notification(self):
-        """Test case for put_notification
-
-        Modifica una notificación previamente registrado
-        """
-        notification = Notification()
-        response = self.client.open(
-            '/notification',
-            method='PUT',
             data=json.dumps(notification),
             content_type='application/json')
         self.assert200(response,

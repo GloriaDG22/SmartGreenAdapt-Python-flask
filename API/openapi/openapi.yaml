@@ -342,49 +342,6 @@ paths:
       x-swagger-router-controller: Luminosidad
       x-openapi-router-controller: openapi_server.controllers.luminosidad_controller
   /notification:
-    delete:
-      description: Eliminación de una notificación en la base de datos.
-      operationId: delete_notification
-      parameters:
-      - description: Id del dato de notificación
-        explode: true
-        in: query
-        name: idNotification
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
-      responses:
-        201:
-          content:
-            text/plain:
-              schema:
-                example: Created
-                title: Created
-                type: string
-          description: Created
-        404:
-          content:
-            text/plain:
-              schema:
-                example: Not found
-                title: Endpoint not found
-                type: string
-          description: Not found response
-        405:
-          content:
-            text/plain:
-              schema:
-                example: The format is not valid
-                title: Invalid input
-                type: string
-          description: Invalid input
-      summary: Eliminación de datos de notificación.
-      tags:
-      - Notificacion
-      x-swagger-router-controller: Notificacion
-      x-openapi-router-controller: openapi_server.controllers.notificacion_controller
     get:
       description: Devuelve todos los datos relacionados con notificaciones.
       operationId: get_notification
@@ -462,45 +419,6 @@ paths:
                 type: string
           description: Invalid input
       summary: Registra una nueva notificación.
-      tags:
-      - Notificacion
-      x-swagger-router-controller: Notificacion
-      x-openapi-router-controller: openapi_server.controllers.notificacion_controller
-    put:
-      description: Modifica una notificacion previamente registrada
-      operationId: put_notification
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Notification'
-        required: true
-      responses:
-        201:
-          content:
-            text/plain:
-              schema:
-                example: Created
-                title: Created
-                type: string
-          description: Created
-        404:
-          content:
-            text/plain:
-              schema:
-                example: Not found
-                title: Endpoint not found
-                type: string
-          description: Not found response
-        405:
-          content:
-            text/plain:
-              schema:
-                example: The format is not valid
-                title: Invalid input
-                type: string
-          description: Invalid input
-      summary: Modifica una notificación previamente registrado
       tags:
       - Notificacion
       x-swagger-router-controller: Notificacion
