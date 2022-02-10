@@ -6,27 +6,27 @@ info:
     url: http://spilab.es/
   description: Esta API provee los servicios necesarios para gestionar los datos recogidos por los dispositivos Arduino y sus sensores.
   termsOfService: http://spilab.es/
-  title: Smart GreenAdapt 
-  version: "1.0"
+  title: Smart GreenAdapt
+  version: '1.0'
 servers:
-- url: /
+  - url: /
 paths:
   /airquality:
     delete:
       description: Eliminación de un dato de la calidad del aire guardado en la base de datos.
       operationId: deleteAirQuality
       parameters:
-      - description: Id de la calidad del aire
-        explode: true
-        in: query
-        name: idAirQuality
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
+        - description: Id de la calidad del aire
+          explode: true
+          in: query
+          name: idAirQuality
+          required: true
+          schema:
+            format: int32
+            type: integer
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -34,7 +34,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -42,7 +42,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -52,22 +52,22 @@ paths:
           description: Invalid input
       summary: Eliminación de datos de la calidad del aire.
       tags:
-      - Calidad del aire
+        - Calidad del aire
       x-swagger-router-controller: CalidadDelAire
     get:
       description: Devuelve todos los datos relacionados con la calidad del aire.
       operationId: getAirQuality
       parameters:
-      - description: Fecha de la recogida de la información
-        explode: true
-        in: query
-        name: date
-        required: true
-        schema:
-          type: string
-        style: form
+        - description: Fecha de la recogida de la información
+          explode: true
+          in: query
+          name: date
+          required: true
+          schema:
+            type: string
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -75,7 +75,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -83,7 +83,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -93,7 +93,7 @@ paths:
           description: Invalid input
       summary: Devuelve todos los datos relacionados con la calidad del aire.
       tags:
-      - Calidad del aire
+        - Calidad del aire
       x-swagger-router-controller: CalidadDelAire
     post:
       description: Creacion de nuevos datos asociados a la calidad del aire.
@@ -105,7 +105,7 @@ paths:
               $ref: '#/components/schemas/AirQuality'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -113,7 +113,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -121,7 +121,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -131,7 +131,7 @@ paths:
           description: Invalid input
       summary: Registra un nuevo dato de calidad del aire.
       tags:
-      - Calidad del aire
+        - Calidad del aire
       x-swagger-router-controller: CalidadDelAire
     put:
       description: Modifica un dato de calidad del aire previamente registrado
@@ -143,7 +143,7 @@ paths:
               $ref: '#/components/schemas/AirQuality'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -151,7 +151,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -159,7 +159,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -169,24 +169,24 @@ paths:
           description: Invalid input
       summary: Modifica un dato de calidad del aire previamente registrado
       tags:
-      - Calidad del aire
+        - Calidad del aire
       x-swagger-router-controller: CalidadDelAire
   /luminosity:
     delete:
       description: Eliminación un dato de luminosidad en la base de datos.
       operationId: deleteLuminosity
       parameters:
-      - description: Id del dato de luminosidad
-        explode: true
-        in: query
-        name: idLuminosity
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
+        - description: Id del dato de luminosidad
+          explode: true
+          in: query
+          name: idLuminosity
+          required: true
+          schema:
+            format: int32
+            type: integer
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -194,7 +194,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -202,7 +202,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -212,22 +212,22 @@ paths:
           description: Invalid input
       summary: Eliminación de datos de luminosidad.
       tags:
-      - Luminosidad
+        - Luminosidad
       x-swagger-router-controller: Luminosidad
     get:
       description: Devuelve todos los datos relacionados con la luminosidad.
       operationId: getLuminosity
       parameters:
-      - description: Fecha de la recogida de la información
-        explode: true
-        in: query
-        name: date
-        required: true
-        schema:
-          type: string
-        style: form
+        - description: Fecha de la recogida de la información
+          explode: true
+          in: query
+          name: date
+          required: true
+          schema:
+            type: string
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -235,7 +235,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -243,7 +243,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -253,7 +253,7 @@ paths:
           description: Invalid input
       summary: Devuelve todos los datos relacionados con la luminosidad.
       tags:
-      - Luminosidad
+        - Luminosidad
       x-swagger-router-controller: Luminosidad
     post:
       description: Creacion de nuevos datos asociados a la luminosidad.
@@ -265,7 +265,7 @@ paths:
               $ref: '#/components/schemas/Luminosity'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -273,7 +273,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -281,7 +281,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -291,7 +291,7 @@ paths:
           description: Invalid input
       summary: Registra un nuevo dato de luminosidad.
       tags:
-      - Luminosidad
+        - Luminosidad
       x-swagger-router-controller: Luminosidad
     put:
       description: Modifica un dato de luminosidad previamente registrado
@@ -303,7 +303,7 @@ paths:
               $ref: '#/components/schemas/Luminosity'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -311,7 +311,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -319,7 +319,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -329,65 +329,23 @@ paths:
           description: Invalid input
       summary: Modifica un dato de luminosidad previamente registrado
       tags:
-      - Luminosidad
+        - Luminosidad
       x-swagger-router-controller: Luminosidad
   /notification:
-    delete:
-      description: Eliminación de una notificación en la base de datos.
-      operationId: deleteNotification
-      parameters:
-      - description: Id del dato de notificación
-        explode: true
-        in: query
-        name: idNotification
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
-      responses:
-        201:
-          content:
-            text/plain:
-              schema:
-                example: Created
-                title: Created
-                type: string
-          description: Created
-        404:
-          content:
-            text/plain:
-              schema:
-                example: Not found
-                title: Endpoint not found
-                type: string
-          description: Not found response
-        405:
-          content:
-            text/plain:
-              schema:
-                example: The format is not valid
-                title: Invalid input
-                type: string
-          description: Invalid input
-      summary: Eliminación de datos de notificación.
-      tags:
-      - Notificacion
-      x-swagger-router-controller: Notificacion
     get:
       description: Devuelve todos los datos relacionados con notificaciones.
       operationId: getNotification
       parameters:
-      - description: Fecha de la recogida de la información
-        explode: true
-        in: query
-        name: date
-        required: true
-        schema:
-          type: string
-        style: form
+        - description: Fecha de la recogida de la información
+          explode: true
+          in: query
+          name: date
+          required: true
+          schema:
+            type: string
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -395,7 +353,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -403,7 +361,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -413,7 +371,7 @@ paths:
           description: Invalid input
       summary: Devuelve todos los datos relacionados con notificaciones.
       tags:
-      - Notificacion
+        - Notificacion
       x-swagger-router-controller: Notificacion
     post:
       description: Creacion de nuevas notificaciones.
@@ -425,7 +383,7 @@ paths:
               $ref: '#/components/schemas/Notification'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -433,7 +391,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -441,7 +399,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -451,62 +409,24 @@ paths:
           description: Invalid input
       summary: Registra una nueva notificación.
       tags:
-      - Notificacion
-      x-swagger-router-controller: Notificacion
-    put:
-      description: Modifica una notificacion previamente registrada
-      operationId: putNotification
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Notification'
-        required: true
-      responses:
-        201:
-          content:
-            text/plain:
-              schema:
-                example: Created
-                title: Created
-                type: string
-          description: Created
-        404:
-          content:
-            text/plain:
-              schema:
-                example: Not found
-                title: Endpoint not found
-                type: string
-          description: Not found response
-        405:
-          content:
-            text/plain:
-              schema:
-                example: The format is not valid
-                title: Invalid input
-                type: string
-          description: Invalid input
-      summary: Modifica una notificación previamente registrado
-      tags:
-      - Notificacion
+        - Notificacion
       x-swagger-router-controller: Notificacion
   /humidity:
     delete:
       description: Eliminación un dato de humedad en la base de datos.
       operationId: deleteHumidity
       parameters:
-      - description: Id del dato de humedad
-        explode: true
-        in: query
-        name: idHumidity
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
+        - description: Id del dato de humedad
+          explode: true
+          in: query
+          name: idHumidity
+          required: true
+          schema:
+            format: int32
+            type: integer
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -514,7 +434,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -522,7 +442,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -532,22 +452,22 @@ paths:
           description: Invalid input
       summary: Eliminación de datos de humedad.
       tags:
-      - Humedad
+        - Humedad
       x-swagger-router-controller: Humedad
     get:
       description: Devuelve todos los datos relacionados con la humedad.
       operationId: getHumidity
       parameters:
-      - description: Fecha de la recogida de la información
-        explode: true
-        in: query
-        name: date
-        required: true
-        schema:
-          type: string
-        style: form
+        - description: Fecha de la recogida de la información
+          explode: true
+          in: query
+          name: date
+          required: true
+          schema:
+            type: string
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -555,7 +475,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -563,7 +483,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -573,7 +493,7 @@ paths:
           description: Invalid input
       summary: Devuelve todos los datos relacionados con la humedad.
       tags:
-      - Humedad
+        - Humedad
       x-swagger-router-controller: Humedad
     post:
       description: Creacion de nuevos datos asociados a la humedad.
@@ -585,7 +505,7 @@ paths:
               $ref: '#/components/schemas/Humidity'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -593,7 +513,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -601,7 +521,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -611,7 +531,7 @@ paths:
           description: Invalid input
       summary: Registra un nuevo dato de humedad.
       tags:
-      - Humedad
+        - Humedad
       x-swagger-router-controller: Humedad
     put:
       description: Modifica un dato de humedad previamente registrado
@@ -623,7 +543,7 @@ paths:
               $ref: '#/components/schemas/Humidity'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -631,7 +551,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -639,7 +559,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -649,24 +569,24 @@ paths:
           description: Invalid input
       summary: Modifica un dato de humedad previamente registrado
       tags:
-      - Humedad
+        - Humedad
       x-swagger-router-controller: Humedad
   /temperature:
     delete:
       description: Eliminación un dato de temperatura en la base de datos.
       operationId: deleteTemperature
       parameters:
-      - description: Id del dato de temperatura
-        explode: true
-        in: query
-        name: idTemperature
-        required: true
-        schema:
-          format: int32
-          type: integer
-        style: form
+        - description: Id del dato de temperatura
+          explode: true
+          in: query
+          name: idTemperature
+          required: true
+          schema:
+            format: int32
+            type: integer
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -674,7 +594,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -682,7 +602,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -692,22 +612,22 @@ paths:
           description: Invalid input
       summary: Eliminación de datos de temperatura.
       tags:
-      - Temperatura
+        - Temperatura
       x-swagger-router-controller: Temperatura
     get:
       description: Devuelve todos los datos relacionados con la temperatura.
       operationId: getTemperature
       parameters:
-      - description: Fecha de la recogida de la información
-        explode: true
-        in: query
-        name: date
-        required: true
-        schema:
-          type: string
-        style: form
+        - description: Fecha de la recogida de la información
+          explode: true
+          in: query
+          name: date
+          required: true
+          schema:
+            type: string
+          style: form
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -715,7 +635,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -723,7 +643,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -733,7 +653,7 @@ paths:
           description: Invalid input
       summary: Devuelve todos los datos relacionados con la temperatura.
       tags:
-      - Temperatura
+        - Temperatura
       x-swagger-router-controller: Temperatura
     post:
       description: Creacion de nuevos datos asociados a la temperatura.
@@ -745,7 +665,7 @@ paths:
               $ref: '#/components/schemas/Temperature'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -753,7 +673,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -761,7 +681,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -771,7 +691,7 @@ paths:
           description: Invalid input
       summary: Registra un nuevo dato de temperatura.
       tags:
-      - Temperatura
+        - Temperatura
       x-swagger-router-controller: Temperatura
     put:
       description: Modifica un dato de temperatura previamente registrado
@@ -783,7 +703,7 @@ paths:
               $ref: '#/components/schemas/Temperature'
         required: true
       responses:
-        201:
+        '201':
           content:
             text/plain:
               schema:
@@ -791,7 +711,7 @@ paths:
                 title: Created
                 type: string
           description: Created
-        404:
+        '404':
           content:
             text/plain:
               schema:
@@ -799,7 +719,7 @@ paths:
                 title: Endpoint not found
                 type: string
           description: Not found response
-        405:
+        '405':
           content:
             text/plain:
               schema:
@@ -809,11 +729,11 @@ paths:
           description: Invalid input
       summary: Modifica un dato de temperatura previamente registrado
       tags:
-      - Temperatura
+        - Temperatura
       x-swagger-router-controller: Temperatura
 components:
   responses:
-    201:
+    '201':
       content:
         text/plain:
           schema:
@@ -821,7 +741,7 @@ components:
             title: Created
             type: string
       description: Created
-    404:
+    '404':
       content:
         text/plain:
           schema:
@@ -829,7 +749,7 @@ components:
             title: Endpoint not found
             type: string
       description: Not found response
-    405:
+    '405':
       content:
         text/plain:
           schema:
