@@ -1,0 +1,947 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: gdiazw@alumnos.unex.es
+    name: Smart GreenAdapt
+    url: http://spilab.es/
+  description: Esta API provee los servicios necesarios para gestionar los datos recogidos
+    por los dispositivos Arduino y sus sensores.
+  termsOfService: http://spilab.es/
+  title: Smart GreenAdapt
+  version: "1.0"
+servers:
+- url: https://raw.githubusercontent.com/
+paths:
+  /airquality:
+    delete:
+      description: Eliminación de un dato de la calidad del aire guardado en la base
+        de datos.
+      operationId: delete_air_quality
+      parameters:
+      - description: Id de la calidad del aire
+        explode: true
+        in: query
+        name: idAirQuality
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminación de datos de la calidad del aire.
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+      x-openapi-router-controller: openapi_server.controllers.calidad_del_aire_controller
+    get:
+      description: Devuelve todos los datos relacionados con la calidad del aire.
+      operationId: get_air_quality
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la calidad del aire.
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+      x-openapi-router-controller: openapi_server.controllers.calidad_del_aire_controller
+    post:
+      description: Creacion de nuevos datos asociados a la calidad del aire.
+      operationId: post_air_quality
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AirQuality'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de calidad del aire.
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+      x-openapi-router-controller: openapi_server.controllers.calidad_del_aire_controller
+    put:
+      description: Modifica un dato de calidad del aire previamente registrado
+      operationId: put_air_quality
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AirQuality'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de calidad del aire previamente registrado
+      tags:
+      - Calidad del aire
+      x-swagger-router-controller: CalidadDelAire
+      x-openapi-router-controller: openapi_server.controllers.calidad_del_aire_controller
+  /luminosity:
+    delete:
+      description: Eliminación un dato de luminosidad en la base de datos.
+      operationId: delete_luminosity
+      parameters:
+      - description: Id del dato de luminosidad
+        explode: true
+        in: query
+        name: idLuminosity
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminación de datos de luminosidad.
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+      x-openapi-router-controller: openapi_server.controllers.luminosidad_controller
+    get:
+      description: Devuelve todos los datos relacionados con la luminosidad.
+      operationId: get_luminosity
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la luminosidad.
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+      x-openapi-router-controller: openapi_server.controllers.luminosidad_controller
+    post:
+      description: Creacion de nuevos datos asociados a la luminosidad.
+      operationId: post_luminosity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Luminosity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de luminosidad.
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+      x-openapi-router-controller: openapi_server.controllers.luminosidad_controller
+    put:
+      description: Modifica un dato de luminosidad previamente registrado
+      operationId: put_luminosity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Luminosity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de luminosidad previamente registrado
+      tags:
+      - Luminosidad
+      x-swagger-router-controller: Luminosidad
+      x-openapi-router-controller: openapi_server.controllers.luminosidad_controller
+  /notification:
+    delete:
+      description: Eliminación de una notificación en la base de datos.
+      operationId: delete_notification
+      parameters:
+      - description: Id del dato de notificación
+        explode: true
+        in: query
+        name: idNotification
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminación de datos de notificación.
+      tags:
+      - Notificacion
+      x-swagger-router-controller: Notificacion
+      x-openapi-router-controller: openapi_server.controllers.notificacion_controller
+    get:
+      description: Devuelve todos los datos relacionados con notificaciones.
+      operationId: get_notification
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con notificaciones.
+      tags:
+      - Notificacion
+      x-swagger-router-controller: Notificacion
+      x-openapi-router-controller: openapi_server.controllers.notificacion_controller
+    post:
+      description: Creacion de nuevas notificaciones.
+      operationId: post_notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra una nueva notificación.
+      tags:
+      - Notificacion
+      x-swagger-router-controller: Notificacion
+      x-openapi-router-controller: openapi_server.controllers.notificacion_controller
+    put:
+      description: Modifica una notificacion previamente registrada
+      operationId: put_notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica una notificación previamente registrado
+      tags:
+      - Notificacion
+      x-swagger-router-controller: Notificacion
+      x-openapi-router-controller: openapi_server.controllers.notificacion_controller
+  /humidity:
+    delete:
+      description: Eliminación un dato de humedad en la base de datos.
+      operationId: delete_humidity
+      parameters:
+      - description: Id del dato de humedad
+        explode: true
+        in: query
+        name: idHumidity
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminación de datos de humedad.
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+      x-openapi-router-controller: openapi_server.controllers.humedad_controller
+    get:
+      description: Devuelve todos los datos relacionados con la humedad.
+      operationId: get_humidity
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la humedad.
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+      x-openapi-router-controller: openapi_server.controllers.humedad_controller
+    post:
+      description: Creacion de nuevos datos asociados a la humedad.
+      operationId: post_humidity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Humidity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de humedad.
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+      x-openapi-router-controller: openapi_server.controllers.humedad_controller
+    put:
+      description: Modifica un dato de humedad previamente registrado
+      operationId: put_humidity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Humidity'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de humedad previamente registrado
+      tags:
+      - Humedad
+      x-swagger-router-controller: Humedad
+      x-openapi-router-controller: openapi_server.controllers.humedad_controller
+  /temperature:
+    delete:
+      description: Eliminación un dato de temperatura en la base de datos.
+      operationId: delete_temperature
+      parameters:
+      - description: Id del dato de temperatura
+        explode: true
+        in: query
+        name: idTemperature
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Eliminación de datos de temperatura.
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+      x-openapi-router-controller: openapi_server.controllers.temperatura_controller
+    get:
+      description: Devuelve todos los datos relacionados con la temperatura.
+      operationId: get_temperature
+      parameters:
+      - description: Fecha de la recogida de la información
+        explode: true
+        in: query
+        name: date
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Devuelve todos los datos relacionados con la temperatura.
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+      x-openapi-router-controller: openapi_server.controllers.temperatura_controller
+    post:
+      description: Creacion de nuevos datos asociados a la temperatura.
+      operationId: post_temperature
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Temperature'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Registra un nuevo dato de temperatura.
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+      x-openapi-router-controller: openapi_server.controllers.temperatura_controller
+    put:
+      description: Modifica un dato de temperatura previamente registrado
+      operationId: put_temperature
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Temperature'
+        required: true
+      responses:
+        201:
+          content:
+            text/plain:
+              schema:
+                example: Created
+                title: Created
+                type: string
+          description: Created
+        404:
+          content:
+            text/plain:
+              schema:
+                example: Not found
+                title: Endpoint not found
+                type: string
+          description: Not found response
+        405:
+          content:
+            text/plain:
+              schema:
+                example: The format is not valid
+                title: Invalid input
+                type: string
+          description: Invalid input
+      summary: Modifica un dato de temperatura previamente registrado
+      tags:
+      - Temperatura
+      x-swagger-router-controller: Temperatura
+      x-openapi-router-controller: openapi_server.controllers.temperatura_controller
+components:
+  responses:
+    201:
+      content:
+        text/plain:
+          schema:
+            example: Created
+            title: Created
+            type: string
+      description: Created
+    404:
+      content:
+        text/plain:
+          schema:
+            example: Not found
+            title: Endpoint not found
+            type: string
+      description: Not found response
+    405:
+      content:
+        text/plain:
+          schema:
+            example: The format is not valid
+            title: Invalid input
+            type: string
+      description: Invalid input
+  schemas:
+    AirQuality:
+      example:
+        date: 01/10/2019
+        amount: 45.5
+        idAirQuality: 1
+      properties:
+        idAirQuality:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Luminosity:
+      example:
+        idLuminosity: 1
+        date: 01/10/2019
+        amount: 45.5
+      properties:
+        idLuminosity:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Notification:
+      example:
+        date: 01/10/2019
+        amount: 45.5
+        idNotification: 1
+      properties:
+        idNotification:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Humidity:
+      example:
+        date: 01/10/2019
+        idHumidity: 1
+        amount: 45.5
+      properties:
+        idHumidity:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
+    Temperature:
+      example:
+        date: 01/10/2019
+        idTemperature: 1
+        amount: 45.5
+      properties:
+        idTemperature:
+          example: 1
+          format: int64
+          type: integer
+        amount:
+          example: 45.5
+          type: number
+        date:
+          example: 01/10/2019
+          type: string
+      type: object
