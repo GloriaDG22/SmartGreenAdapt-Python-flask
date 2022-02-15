@@ -1,10 +1,16 @@
 import connexion
 import six
 
-from openapi_server.models.temperature import Temperature  # noqa: E501
-from openapi_server import util
+from ..models.temperature import Temperature  # noqa: E501
+from .. import util
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+db = SQLAlchemy(app)
 
 
+@app.route('/service/temperature/delete/<id>', methods=['DELETE'])
 def delete_temperature(id_temperature):  # noqa: E501
     """Eliminación de datos de temperatura.
 
@@ -15,22 +21,30 @@ def delete_temperature(id_temperature):  # noqa: E501
 
     :rtype: str
     """
-    return 'do some magic!'
+    data = db.session.query(Temperature).get(id)
+    db.session.delete(data)
+    db.session.commit()
+    return jsonify('Deleted')
 
 
+@app.route('/service/temperature/<id>', methods=['GET'])
 def get_temperature(date):  # noqa: E501
     """Devuelve todos los datos relacionados con la temperatura.
 
     Devuelve todos los datos relacionados con la temperatura. # noqa: E501
 
-    :param date: Fecha de la recogida de la información
+    :param date: Fecha de la recogida de la i
+
+    información
     :type date: str
 
     :rtype: str
     """
-    return 'do some magic!'
+    return db.session.query(Temperature.id_temperature, Temperature.date, Temperature.amount).filter(
+        Temperature.date == date).first()
 
 
+@app.route('/service/temperature/post/<id>', methods=['POST'])
 def post_temperature(temperature):  # noqa: E501
     """Registra un nuevo dato de temperatura.
 
@@ -43,9 +57,17 @@ def post_temperature(temperature):  # noqa: E501
     """
     if connexion.request.is_json:
         temperature = Temperature.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+
+        data = request.get_json()
+        date = data.get('date')
+        amount = data.get('amount')
+        db.session.add(Temperature(date, amount))
+        db.session.commit()
+
+    return jsonify('Post')
 
 
+@app.route('/service/temperature/put/<id>', methods=['PUT'])
 def put_temperature(temperature):  # noqa: E501
     """Modifica un dato de temperatura previamente registrado
 
@@ -58,4 +80,12 @@ def put_temperature(temperature):  # noqa: E501
     """
     if connexion.request.is_json:
         temperature = Temperature.from_dict(connexion.request.get_json())  # noqa: E501
-    return 'do some magic!'
+        data = request.get_json()
+        date = data.get('date')
+        amount = data.get('amount')
+        temp = db.session.query(Temperature).get(temperature.id_temperature)
+        temp.date = date
+        temp.amount = amount
+        db.session.commit()
+
+    return jsonify('Update')

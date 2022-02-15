@@ -1,8 +1,8 @@
 import connexion
 import six
 
-from openapi_server.models.air_quality import AirQuality  # noqa: E501
-from openapi_server import util
+from ..models.air_quality import AirQuality  # noqa: E501
+from .. import util
 
 
 def delete_air_quality(id_air_quality):  # noqa: E501
@@ -15,6 +15,7 @@ def delete_air_quality(id_air_quality):  # noqa: E501
 
     :rtype: str
     """
+
     return 'do some magic!'
 
 

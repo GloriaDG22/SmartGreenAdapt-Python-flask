@@ -1,8 +1,8 @@
 import connexion
 import six
 
-from openapi_server.models.humidity import Humidity  # noqa: E501
-from openapi_server import util
+from ..models.humidity import Humidity  # noqa: E501
+from .. import util
 
 
 def delete_humidity(id_humidity):  # noqa: E501

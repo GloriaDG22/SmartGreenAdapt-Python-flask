@@ -1,8 +1,8 @@
 import connexion
 import six
 
-from openapi_server.models.notification import Notification  # noqa: E501
-from openapi_server import util
+from ..models.notification import Notification  # noqa: E501
+from .. import util
 
 
 def get_notification(date):  # noqa: E501

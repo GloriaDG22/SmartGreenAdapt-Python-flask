@@ -1,8 +1,8 @@
 import connexion
 import six
 
-from openapi_server.models.luminosity import Luminosity  # noqa: E501
-from openapi_server import util
+from ..models.luminosity import Luminosity  # noqa: E501
+from .. import util
 
 
 def delete_luminosity(id_luminosity):  # noqa: E501
